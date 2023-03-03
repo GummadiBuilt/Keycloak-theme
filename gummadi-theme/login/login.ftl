@@ -4,6 +4,18 @@
     <#if section = "title">
         ${msg("loginTitle",(realm.displayName!''))?no_esc}
     <#elseif section = "header">
+    <div class='toolbar'>
+    <div class='logodiv'><img class="logo" width="200px" height="100px"></div>
+    <div class='menus'>
+    <#assign link = properties.links?split(',')>
+    <ul>
+        <#list properties.titles?split(',') as title>
+        <#assign i = title?index>
+            <li><a href='${properties.baseUrl}${link[i]}'>${title}</a></li>
+        </#list>
+    </ul>
+    </div>
+    </div>
 	<div class="title">
             ${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}
     </div>
