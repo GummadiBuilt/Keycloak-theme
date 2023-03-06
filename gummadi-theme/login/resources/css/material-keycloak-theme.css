@@ -8,9 +8,12 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    background-attachment: fixed;
+    margin: 0px !important;
 }
 
 .title {
+    margin-top: 5%;
     margin-bottom: 15px;
 }
 
@@ -110,12 +113,12 @@ hr {
 
 .sign-up {
     float: right;
-    margin-right: 21%;
+    margin-right: 33%;
     background-color: #42b72a !important;
 }
 
 .forgot-pass {
-    margin-left: 28%;
+    margin-left: 33%;
     color: #1877f2 !important;
 }
 
@@ -182,42 +185,45 @@ hr {
 }
 
 /*navbar*/
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 1000;
-    height: 64px !important;
-    font-weight: 500;
-    font-size: 14px;
+.menus {
+    display: flex;
+    flex-direction: row;
+    float: right;
+    margin: 14px 20px;
 }
 
-li {
-    float: left;
-    border-right: 1px solid #bbb;
+.divider {
+    font-size: 20px;
+    color: #841618;
+    font-weight: 580 !important;
+    margin-top: 2px;
 }
 
-li:last-child {
-    border-right: none;
+.divider:last-child {
+    display: none;
 }
 
-li a {
+.menus a {
     display: block;
     color: #841618;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8px 16px;
+    margin-left: 24px;
+    margin-right: 24px;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
 }
 
-li a:hover:not(.active) {
+.menus a:hover:not(.active) {
     color: white;
     background: linear-gradient(#e73a3d, #841618);
+    border-radius: 4px;
+}
+
+@media (max-width:928px) {
+    .menus {
+        display: none;
+    }
 }
 
 .active {
@@ -225,34 +231,112 @@ li a:hover:not(.active) {
 }
 
 .logo {
-    /* height: 93px !important; */
-    background-image: url(../img/logo.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    /* width: 158px; */
-    
-}
-
-.logodiv {
-    /* display: inline-block; */
     float: left;
     flex: 1 1 auto;
-}
-
-.menus {
-    width: 55%;
-    display: inline-block;
-    
-    
+    margin: 8px 24px;
+    background-image: url(../img/logo.png);
+    width: 100px !important;
+    height: 44px !important;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .toolbar {
-    flex: 1 1 auto;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 501 !important;
+    background-color: #f5f5f5;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     z-index: 1000;
     height: 64px !important;
     box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+}
+
+@media (max-width:928px) {
+    .menus {
+        display: none;
+    }
+
+    .logo {
+        float: right;
+        margin: 8px 24px;
+        background-image: url(../img/logo.png);
+        width: 100px !important;
+        height: 44px !important;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+.menu-btn {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    font-size: 24px;
+    cursor: pointer;
+    color: #841618;
+    margin: 12px 24px 16px 16px;
+}
+
+.sidenav {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 64px;
+    left: 0;
+    background-color: #f5f5f5;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 40px;
+    font-weight: 501;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.sidenav a {
+    color: #841618;
+    text-align: center;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 12px;
+}
+
+.sidenav a:hover {
+    color: white;
+    background: linear-gradient(#e73a3d, #841618);
+    border-radius: 4px;
+}
+
+.sidenav .closebtn {
+    color: #841618;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media (min-width:927px) {
+    .menu-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
